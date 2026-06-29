@@ -3,90 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KUA Seruyan Raya - Layanan Digital</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Laydig KUA Seruyan Raya</title>
+    
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f2f5;
+        :root {
+            --primary-color: #006400; /* Hijau Kemenag */
+            --secondary-color: #f4b400; /* Emas/Kuning */
+            --bg-color: #f8fafc;
+            --text-dark: #1e293b;
+            --card-bg: #ffffff;
+        }
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 480px;
+            margin-top: 20px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            background: white;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .logo-container img {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        /* Buttons/Cards Section */
+        .links-container {
+            display: grid;
+            gap: 15px;
+        }
+
+        .link-card {
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            text-decoration: none;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--primary-color);
+        }
+
+        .icon-box {
+            width: 45px;
+            height: 45px;
+            background: #f0fdf4;
+            color: var(--primary-color);
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            margin-right: 15px;
         }
-        .container {
-            width: 100%;
-            max-width: 400px;
-            background: white;
-            padding: 30px;
+
+        .link-text {
+            flex: 1;
+        }
+
+        .link-text span {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .link-text small {
+            color: #94a3b8;
+            font-size: 0.75rem;
+        }
+
+        .arrow {
+            color: #cbd5e1;
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
             text-align: center;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-top: 40px;
+            padding-bottom: 20px;
         }
-        img.logo {
-            width: 80px;
+
+        .social-media {
             margin-bottom: 15px;
         }
-        h1 {
-            font-size: 1.4rem;
-            color: #2c3e50;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-        p.subtitle {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-        }
-        .link-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .link-btn {
-            background-color: #1b5e20; /* Warna Hijau Khas Kemenag */
-            color: white;
-            padding: 14px;
+
+        .social-media a {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin: 0 10px;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0.7;
         }
-        .link-btn:hover {
-            background-color: #2e7d32;
-            transform: translateY(-2px);
+
+        .social-media a:hover { opacity: 1; }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            line-height: 1.5;
         }
-        .footer {
-            margin-top: 30px;
+
+        /* Badge Online */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 0.7rem;
-            color: #bdc3c7;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Logo Kemenag -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/archive/b/b2/20220309033405%21Logo_Kementerian_Agama.png" alt="Logo Kemenag" class="logo">
-        
-        <h1>KUA Seruyan Raya</h1>
-        <p class="subtitle">Pusat Layanan Keagamaan & Pernikahan</p>
+    <div class="wrapper">
+        <header>
+            <div class="status-badge">
+                <div class="status-dot"></div> Layanan Terintegrasi
+            </div>
+            <div class="logo-container">
+                <img src="https://bimaskatolik.kemenag.go.id/sample/logo.png" alt="Logo Kemenag">
+            </div>
+            <h1>KUA SERUYAN RAYA</h1>
+            <p class="tagline">Kab. Seruyan, Kalimantan Tengah</p>
+        </header>
 
-        <div class="link-wrapper">
-            <!-- GANTI LINK DI BAWAH INI SESUAI KEBUTUHAN -->
-            <a href="https://wa.me/6285845239435" target="_blank" class="link-btn">💬 Konsultasi via WhatsApp</a>
-            <a href="https://simkah4.kemenag.go.id/" target="_blank" class="link-btn">💍 Daftar Nikah Online (SIMKAH)</a>
-            <a href="https://maps.app.goo.gl/EwgW1aSqxyzD5nW27" target="_blank" class="link-btn">📍 Lokasi Kantor KUA</a>
-            <a href="#" class="link-btn">📜 Alur & Syarat Nikah</a>
-            <a href="https://kemenag.go.id" target="_blank" class="link-btn">🌐 Website Kemenag RI</a>
+        <div class="links-container">
+            <!-- Link 1: WhatsApp -->
+            <a href="https://wa.me/6285845239435" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="link-text">
+                    <span>Konsultasi Online</span>
+                    <small>Chat Admin (Layanan Cepat)</small>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+
+            <!-- Link 2: SIMKAH -->
+            <a href="https://simkah4.kemenag.go.id" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-ring"></i></div>
+                <div class="link-text">
+                    <span>Pendaftaran Nikah</span>
+                    <small>Akses Aplikasi SIMKAH Gen 4</small>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+
+            <!-- Link 3: Syarat Nikah -->
+            <a href="https://drive.google.com/file/d/17-La-MrF5BO4znWIeBdqNtF7W8K541Me/view?usp=sharing" class="link-card">
+                <div class="icon-box"><i class="fa-solid fa-file-invoice"></i></div>
+                <div class="link-text">
+                    <span>Persyaratan Nikah</span>
+                    <small>Dokumen & Alur Pendaftaran</small>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+
+            <!-- Link 4: Lokasi -->
+            <a href="https://maps.app.goo.gl/EwgW1aSqxyzD5nW27" class="link-card" target="_blank">
+                <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="link-text">
+                    <span>Lokasi Kantor</span>
+                    <small>Petunjuk arah Google Maps</small>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+
+            <!-- Link 5: Survey -->
+            <a href="#" class="link-card">
+                <div class="icon-box"><i class="fa-solid fa-star"></i></div>
+                <div class="link-text">
+                    <span>Survey Kepuasan</span>
+                    <small>Bantu kami meningkatkan layanan</small>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
         </div>
 
-        <div class="footer">
-            &copy; 2024 KUA Seruyan Raya <br> Kab. Seruyan, Kalimantan Tengah
-        </div>
+        <footer>
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 KUA Seruyan Raya<br>
+                Kementerian Agama Republik Indonesia
+            </div>
+        </footer>
     </div>
 
 </body>
